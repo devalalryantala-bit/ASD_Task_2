@@ -1,37 +1,36 @@
 #include "list.h"
 
 void insertAfter(List &L, address Prec, address P) {
-    if (Prec != NULL) {
+    if (Prec != nullptr) {
         next(P) = next(Prec);
         next(Prec) = P;
     }
 }
 
 void deleteFirst(List &L, address &P) {
-    if (first(L) != NULL) {
+    if (first(L) != nullptr) {
         P = first(L);
         first(L) = next(first(L));
-        next(P) = NULL;
+        next(P) = nullptr;
     } else {
-        P = NULL;
+        P = nullptr;
     }
 }
 
 void deleteLast(List &L, address &P) {
-    if (first(L) != NULL) {
-        if (next(first(L)) == NULL) {
+    if (first(L) != nullptr) {
+        if (next(first(L)) == nullptr) {
             P = first(L);
-            first(L) = NULL;
+            first(L) = nullptr;
         } else {
             address Q = first(L);
-            while (next(next(Q)) != NULL) {
+            while (next(next(Q)) != nullptr) {
                 Q = next(Q);
             }
             P = next(Q);
-            next(Q) = NULL;
+            next(Q) = nullptr;
         }
     } else {
-        P = NULL;
+        P = nullptr;
     }
 }
-
