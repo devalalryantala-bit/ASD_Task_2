@@ -136,7 +136,9 @@ void deleteAfter(List &L, address Prec, address &P) {
     *      is removed and pointed by pointer P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    P = Prec->next;
+    P->next = P->next;
+    P->next = nullptr;
 
 
     //----------------------------------------
