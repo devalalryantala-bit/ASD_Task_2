@@ -82,12 +82,12 @@ void deleteFirst(List &L, address &P) {
     * IS : List L may be empty
     * FS : first element in List L is removed and is pointed by P
     */
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-
-    //----------------------------------------
+    if (first(L) != nullptr) {
+    P = first(L);
+    first(L) = next(first(L));
+    next(P) = nullptr;
+} else {
+    P = nullptr;
 }
 
 void deleteLast(List &L, address &P) {
@@ -95,12 +95,20 @@ void deleteLast(List &L, address &P) {
     * IS : List L may be empty
     * FS : last element in List L is removed and is pointed by P
     */
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-
-    //----------------------------------------
+    if (first(L) != nullptr) {
+    if (next(first(L)) == nullptr) {
+        P = first(L);
+        first(L) = nullptr;
+    } else {
+        address Q = first(L);
+        while (next(next(Q)) != nullptr) {
+            Q = next(Q);
+        }
+        P = next(Q);
+        next(Q) = nullptr;
+    }
+} else {
+    P = nullptr;
 }
 
 void printInfo(List L) {
@@ -123,11 +131,9 @@ void insertAfter(List &L, address Prec, address P) {
     * FS : element pointed by P is placed behind the element
     *      pointed by pointer Prec
     */
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-    //----------------------------------------
-
+    if (Prec != nullptr) {
+    next(P) = next(Prec);
+    next(Prec) = P;
 }
 void deleteAfter(List &L, address Prec, address &P) {
     /**
